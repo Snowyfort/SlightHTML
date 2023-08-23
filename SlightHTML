@@ -46,6 +46,15 @@ def main():
         
         print("Successfully created template at " + path)
         print("")
+        _runGit = input("Initiallize git within your project (y/n)? ")
+        if _runGit == "y":
+            print("Initializing git within directory " + path + "...")
+            os.system("git init '" + path + "'")
+            os.system("git -C '" + path + "' add -A")
+            os.system("git -C '" + path + "' commit -m 'First Commit'")
+            print ("")
+            print ("Done.")
+        print("")
         print("Exiting...")
     else:
         print("Directory with the name '" + path + "' already exists. Please try again with a different name.")
