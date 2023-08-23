@@ -21,8 +21,8 @@ def main():
     if os.path.isdir(path) == False:
         os.mkdir(path)
         os.mkdir(path + "/Pages")
-        os.mkdir(path + "/Stylesheets")
-        os.mkdir(path + "/Scripts")
+        os.mkdir(path + "/CSS")
+        os.mkdir(path + "/JS")
         os.mkdir(path + "/Assets")
         with (open(path + "/index.html", "w") as file):
             html = "<!DOCTYPE html>"
@@ -31,17 +31,17 @@ def main():
             html += "\n    <meta charset='UTF-8'>"
             html += "\n    <meta name='viewport' content='width=device-width, initial-scale=1.0'>"
             html += "\n    <title>%s</title>"
-            html += "\n    <link rel='stylesheet' href='Stylesheets/style.css'>"
+            html += "\n    <link rel='stylesheet' href='./CSS/style.css'>"
             html += "\n</head>"
             html += "\n<body>"
-            html += "\n    <script src='./Scripts/main.js'></script>"
+            html += "\n    <script src='./JS/main.js'></script>"
             html += "\n</body>"
             html += "\n</html>"
             file.write(html % _projectName)
             file.close()
-        with (open(path + "/Stylesheets/style.css", "w") as file):
+        with (open(path + "/CSS/style.css", "w") as file):
             file.close()
-        with (open(path + "/Scripts/main.js", "w") as file):
+        with (open(path + "/JS/main.js", "w") as file):
             file.close()
         
         print("Successfully created template at " + path)
