@@ -1,0 +1,55 @@
+#!/usr/bin/python3
+import os
+def main():
+    print(" _____  _  _         _      _    _   _  _____ ___  ___ _    ")
+    print("/  ___|| |(_)       | |    | |  | | | ||_   _||  \/  || |   ")
+    print("\ ---. | | _   __ _ | |__  | |_ | |_| |  | |  | .  . || |   ")
+    print(" \--. \| || | / _' || '_ \ | __||  _  |  | |  | |\/| || |   ")
+    print("/\__/ /| || || (_| || | | || |_ | | | |  | |  | |  | || |____")
+    print("\____/ |_||_| \__, ||_| |_| \__|\_| |_/  \_/  \_|  |_/\_____/")
+    print("               __/ |                                           v1.0.0.0")
+    print("              |___/ ")
+    print("")
+    print("Welcome to SlightHTML, an HTML template generator.")
+    print("")
+    # Get project name
+    _projectName = input("Name of new project: ")
+    print("\nGenerating template and outputing to your current directory...")
+    print("")
+    # Create default directories and files
+    path = "./" + _projectName
+    if os.path.isdir(path) == False:
+        os.mkdir(path)
+        os.mkdir(path + "/Pages")
+        os.mkdir(path + "/Stylesheets")
+        os.mkdir(path + "/Scripts")
+        os.mkdir(path + "/Assets")
+        with (open(path + "/index.html", "w") as file):
+            html = "<!DOCTYPE html>"
+            html += "\n<html lang='en'>"
+            html += "\n<head>"
+            html += "\n    <meta charset='UTF-8'>"
+            html += "\n    <meta name='viewport' content='width=device-width, initial-scale=1.0'>"
+            html += "\n    <title>%s</title>"
+            html += "\n    <link rel='stylesheet' href='Stylesheets/style.css'>"
+            html += "\n</head>"
+            html += "\n<body>"
+            html += "\n    <script src='./Scripts/main.js'></script>"
+            html += "\n</body>"
+            html += "\n</html>"
+            file.write(html % _projectName)
+            file.close()
+        with (open(path + "/Stylesheets/style.css", "w") as file):
+            file.close()
+        with (open(path + "/Scripts/main.js", "w") as file):
+            file.close()
+        
+        print("Successfully created template at " + path)
+        print("")
+        print("Exiting...")
+    else:
+        print("Directory with the name '" + path + "' already exists. Please try again with a different name.")
+        print("")
+        print("Aborting...")
+if __name__ == "__main__":
+    main()
